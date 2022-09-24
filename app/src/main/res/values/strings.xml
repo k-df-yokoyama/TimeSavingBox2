@@ -3,4 +3,14 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="txtvw_input_time_msg">開始・終了日時、メモを入力して下さい</string>
+    <string name="txtvw_start_time">開始日時</string>
+    <string name="txtvw_end_time">終了日時</string>
+    <string name="txtvw_memo">メモ</string>
+    <string name="btn_new">新規</string>
+    <string name="btn_save">保存</string>
+
+    <string name="txtvw_saved_msg">開始・終了日時、メモが保存されました</string>
+    <string name="txtvw_new_msg">New!</string>
 </resources>
