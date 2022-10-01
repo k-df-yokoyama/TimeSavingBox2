@@ -52,7 +52,7 @@ class HomeFragment : Fragment() {
     }
 
     fun onSaveButtonClick() {
-        //[Android & Kotlin] View Binding ��findViewById�̌�p
+        //[Android & Kotlin] View Binding はfindViewByIdの後継
         //https://akira-watson.com/android/kotlin/view-binding.html
         //TODO("LocalDate format yyyy-MM-dd 2019-07-04 is expected") //https://codechacha.com/ja/kotlin-examples-current-date-and-time/
         val currentDateTime = LocalDate.now()
@@ -65,7 +65,7 @@ class HomeFragment : Fragment() {
             binding.edttxtMemo.text.toString())
 
         //https://qiita.com/uhooi/items/471b14cb74adadebc33c
-        //Fragment�ɂ�����Activity��Context�̎g������
+        //FragmentにおけるActivityとContextの使い分け
         // TaskRepository.insertTask(applicationContext, task)
         TaskRepository.insertTask(requireContext(), task)
 
@@ -97,7 +97,7 @@ class HomeFragment : Fragment() {
     }
 
     fun onNewButtonClick() {
-        //[Android & Kotlin] View Binding ��findViewById�̌�p
+        //[Android & Kotlin] View Binding はfindViewByIdの後継
         //https://akira-watson.com/android/kotlin/view-binding.html
         binding.edttxtStartTime.setText("")
         binding.edttxtEndTime.setText("")

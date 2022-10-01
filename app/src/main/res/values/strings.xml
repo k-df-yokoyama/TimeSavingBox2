@@ -12,5 +12,6 @@
     <string name="btn_save">保存</string>
 
     <string name="txtvw_saved_msg">開始・終了日時、メモが保存されました</string>
+    <string name="txtvw_got_msg">開始・終了日時、メモを取得しました</string>
     <string name="txtvw_new_msg">New!</string>
 </resources>
