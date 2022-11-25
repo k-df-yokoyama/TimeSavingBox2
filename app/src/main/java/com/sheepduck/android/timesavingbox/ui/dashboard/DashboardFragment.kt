@@ -1,6 +1,7 @@
 package com.sheepduck.android.timesavingbox.ui.dashboard
 
 import android.os.Bundle
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,6 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.sheepduck.android.timesavingbox.R
-import com.sheepduck.android.timesavingbox.Task
 import com.sheepduck.android.timesavingbox.TaskRepository
 import com.sheepduck.android.timesavingbox.databinding.FragmentDashboardBinding
 import java.time.LocalDate
@@ -81,15 +81,28 @@ class DashboardFragment : Fragment() {
         var allTaskBuilder = StringBuilder()
         for (i in 0 until arrayTask.size) {
             val singleTaskBuilder = StringBuilder()
-            singleTaskBuilder.append(arrayTask.get(i).id).append(",")
-                .append(arrayTask.get(i).date).append(",")
-                .append(arrayTask.get(i).starttime).append(",")
-                .append(arrayTask.get(i).endtime).append(",")
-                .append(arrayTask.get(i).memo)
-                .append(System.getProperty("line.separator"))
+            if (arrayTask.get(i).starttime?.length ?: 0  > 0 && arrayTask.get(i).endtime?.length ?: 0  > 0 && arrayTask.get(i).memo?.length ?: 0  > 0) {
+                singleTaskBuilder.append("<font color=\"Red\">")
+                    .append(arrayTask.get(i).id).append(",")
+                    .append(arrayTask.get(i).date).append(",")
+                    .append(arrayTask.get(i).starttime).append(",")
+                    .append(arrayTask.get(i).endtime).append(",")
+                    .append(arrayTask.get(i).memo)
+                    .append("</font><br>")
+                    .append(System.getProperty("line.separator"))
+            }
+            else {
+                singleTaskBuilder.append(arrayTask.get(i).id).append(",")
+                    .append(arrayTask.get(i).date).append(",")
+                    .append(arrayTask.get(i).starttime).append(",")
+                    .append(arrayTask.get(i).endtime).append(",")
+                    .append(arrayTask.get(i).memo)
+                    .append("<br>")
+                    .append(System.getProperty("line.separator"))
+            }
             allTaskBuilder = singleTaskBuilder.append(allTaskBuilder)
         }
 
-        binding.txtvwMsg.text = "" + getResources().getString(R.string.txtvw_got_msg) + System.getProperty("line.separator") + allTaskBuilder
+        binding.txtvwMsg.text = Html.fromHtml("" + "<font color=\"Red\">" + getResources().getString(R.string.txtvw_got_msg) + "</font>" + "<br>" + System.getProperty("line.separator") + allTaskBuilder)
     }
 }
