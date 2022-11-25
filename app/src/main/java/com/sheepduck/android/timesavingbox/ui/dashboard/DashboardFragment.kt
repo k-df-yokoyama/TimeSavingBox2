@@ -81,7 +81,7 @@ class DashboardFragment : Fragment() {
         var allTaskBuilder = StringBuilder()
         for (i in 0 until arrayTask.size) {
             val singleTaskBuilder = StringBuilder()
-            if (arrayTask.get(i).starttime?.length ?: 0  > 0 && arrayTask.get(i).endtime?.length ?: 0  > 0 && arrayTask.get(i).memo?.length ?: 0  > 0) {
+            if (arrayTask.get(i).starttime?.length ?: 0 == 12 && arrayTask.get(i).endtime?.length ?: 0 == 12 && arrayTask.get(i).memo?.length ?: 0 > 0) {
                 singleTaskBuilder.append("<font color=\"Red\">")
                     .append(arrayTask.get(i).id).append(",")
                     .append(arrayTask.get(i).date).append(",")
